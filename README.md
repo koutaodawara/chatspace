@@ -9,6 +9,7 @@
 
 ### Association
 - has_many :groups, through: :members
+- has_many :members
 - has_many :messages
 
 ## membersテーブル
@@ -28,15 +29,16 @@
 
 ### Association
 - has_many :users, through: :members
+- has_many :members
 - has_many :messages
 
 ## messagesテーブル
 |Column  |Type        |Options|
 |--------|------------|-------|
-|body    |text        |null: false                                |
-|image   |varchar(255)|                                           |
-|user_id |references  |null: false, foreign_key: true             |
-|group_id|references  |null: false, foreign_key: true, index: true|
+|body    |text        |                              |
+|image   |varchar(255)|                              |
+|user_id |references  |null: false, foreign_key: true|
+|group_id|references  |null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
