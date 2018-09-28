@@ -2,7 +2,7 @@
 
 ## usersテーブル
 |Column  |Type        |Options|
-|------  |----        |-------|
+|--------|------------|-------|
 |name    |varchar(15) |null: false, unique: true, index: true|
 |email   |varchar(255)|null: false, unique: true             |
 |password|varchar(255)|null: false, unique: true             |
@@ -12,10 +12,10 @@
 - has_many :messages
 
 ## membersテーブル
-|Column  |Type   |Options|
-|------  |----   |-------|
-|user_id |integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|Column  |Type      |Options|
+|--------|----------|-------|
+|user_id |references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -23,7 +23,7 @@
 
 ## groupsテーブル
 |Column  |Type        |Options|
-|------  |----        |-------|
+|--------|------------|-------|
 |name    |varchar(255)|null: false|
 
 ### Association
@@ -32,11 +32,11 @@
 
 ## messagesテーブル
 |Column  |Type        |Options|
-|------  |----        |-------|
+|--------|------------|-------|
 |body    |text        |null: false                                |
 |image   |varchar(255)|                                           |
-|user_id |int         |null: false, foreign_key: true             |
-|group_id|int         |null: false, foreign_key: true, index: true|
+|user_id |references  |null: false, foreign_key: true             |
+|group_id|references  |null: false, foreign_key: true, index: true|
 
 ### Association
 - belongs_to :user
