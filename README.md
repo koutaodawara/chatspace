@@ -8,7 +8,7 @@
 |password|varchar(255)|null: false, unique: true             |
 
 ### Association
-- has_many :members
+- has_many :groups, through: :members
 - has_many :messages
 
 ## membersテーブル
@@ -27,7 +27,7 @@
 |name    |varchar(255)|null: false|
 
 ### Association
-- has_many :members
+- has_many :users, through: :members
 - has_many :messages
 
 ## messagesテーブル
