@@ -4,17 +4,30 @@
     %meta{ charset: "utf-8" }
     = stylesheet_link_tag "application"
   %body
-    %header.header
-      .header__left
-        %h2.header__left--user-name name
-      .header__right
-        %h2.header__right--room-name room-name
-        %p.header__right--edit-btn Edit
-        %p.header__right--member-list member-list
-    .left-content
-      %p ルームリスト(部分テンプレ)
-    .right-content
-      %p チャットログ(部分テンプレ)
-      .input
-        %input.input__message-box{ type: "text" }
-        .input__sent-btn Send
+    .wrapper
+      .side-bar
+        .header
+          %h2.header__user-name name
+          %p.header__left--user-edit マーク
+        .rooms
+          %h3.rooms__room-name room-name(テンプレ)
+          %p.header__right--room-text room-text(テンプレ)
+      .main
+        .header
+          .room-info
+            %h2.room-info__room-name MainRoom
+            %ul.room-info__members
+              %li.member Member:
+              %li.member kzym
+          .edit-btn
+            %p.edit-btn__btn-text Edit
+        .chat
+          %h3 name(テンプレ)
+          %p date(テンプレ)
+          %p text(テンプレ)
+          %img image(テンプレ)
+        .form
+          .input-box
+            %input.input-box__text{ type: "text" }
+            .input-box__icon 添付
+          .input__sent-btn Send
