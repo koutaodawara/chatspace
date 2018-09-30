@@ -3,12 +3,27 @@
   margin-left: $side-w;
   .header {
     @include div_basic(100%, $head_h);
+    padding: 0 40px;
     .room-info {
+      float: left;
+      margin-top: 35px;
       &__room-name {
+        @include font_basic(#333, 20px);
       }
       .members {
+        margin-top: 15px;
         &__member {
+          @include font_basic(#999, 12px);
+          float: left;
         }
+        &__member + li {
+          padding-left: 5px;
+        }
+      }
+    }
+    .edit-btn {
+      float: right;
+      &__btn-text {
       }
     }
   }
