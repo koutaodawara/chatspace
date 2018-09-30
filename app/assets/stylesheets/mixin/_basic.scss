@@ -6,11 +6,12 @@
   box-sizing: $boxsizing;
 }
 
-@mixin font_basic($color: #fff, $size: 16px, $line: null, $weight: null) {
+@mixin font_basic($color: #fff, $size: 16px, $line: null, $weight: null, $aline: null) {
   color      : $color;
   font-size  : $size;
   line-height: $line;
   font-weight: $weight;
+  text-align : $aline;
 }
 
 @mixin absolute($top: 0, $right: 0, $bottom: 0, $left: 0, $position: absolute) {
