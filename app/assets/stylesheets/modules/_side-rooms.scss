@@ -1,6 +1,6 @@
 .side-bar {
   .rooms {
-    @include div_basic(300px, null, #2f3e51);
+    @include div_basic($side_w, null, #2f3e51);
     @include font_basic(#fff, 15px);
     min-height: 960px;
     .room {

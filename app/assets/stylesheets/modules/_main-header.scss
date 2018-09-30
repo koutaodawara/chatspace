@@ -1,0 +1,15 @@
+.main {
+  @include div_basic (100%);
+  margin-left: $side-w;
+  .header {
+    @include div_basic(100%, $head_h);
+    .room-info {
+      &__room-name {
+      }
+      .members {
+        &__member {
+        }
+      }
+    }
+  }
+}
