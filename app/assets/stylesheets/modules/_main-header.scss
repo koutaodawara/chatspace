@@ -24,11 +24,11 @@
     }
     .edit-btn {
       @include div_basic(null, 40px);
-      @include font_basic($light_blue, null, 40px);
+      @include font_basic($btn_color, null, 40px);
       float: right;
       padding: 0 20px;
       margin-top: 28px;
-      border: solid 1px $light_blue ;
+      border: solid 1px $btn_color ;
       &__btn-text {
       }
     }
