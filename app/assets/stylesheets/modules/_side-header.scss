@@ -1,20 +1,19 @@
 .side-bar {
-  @include div_basic(300px);
   .header {
     @include div_basic(300px, 100px, #253141);
     padding: 0 20px;
-    .header__user-name {
+    &__user-name {
       @include font_basic(#fff, 16px, 100px, bold);
       float: left;
     }
     .edit-list {
       @include font_basic(#fff, 16px, 100px);
       float: right;
-      .edit-list__new {
+      &__new {
         float: right;
         padding-right: 5px;
       }
-      .edit-list__edit {
+      &__edit {
         float: right;
       }
     }
