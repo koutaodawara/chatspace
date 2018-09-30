@@ -1,6 +1,6 @@
 .main {
   .form {
-    @include div_basic(null, 90px, $form_bg);
+    @include div_basic(null, $form_h, $form_bg);
     padding: 20px 40px;
     .input-box {
       @include div_basic(calc(100% - 100px), 50px);

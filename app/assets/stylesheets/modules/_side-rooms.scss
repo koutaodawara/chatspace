@@ -1,6 +1,6 @@
 .side-bar {
   .rooms {
-    @include div_basic($side_w, null, #2f3e51);
+    @include div_basic($side_w, calc(100% - #{$head_h}), #2f3e51);
     @include font_basic(#fff, 15px);
     .room {
       padding: 20px;

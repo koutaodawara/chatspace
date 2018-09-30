@@ -1,6 +1,6 @@
 .main {
   .chat {
-    background-color: #fafafa;
+    @include div_basic(null, calc(100% - #{$head_h} - #{$form_h}), $chat_bg);
     padding:46px 40px 0;
     .message {
       padding-bottom: 40px;
