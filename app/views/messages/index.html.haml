@@ -8,7 +8,11 @@
       .side-bar
         .header
           %h2.header__user-name name
-          %p.header__user-edit マーク
+          %ul.edit-list
+            %li.edit-list__edit
+              = fa_icon("gear")
+            %li.edit-list__new
+              = fa_icon("edit")
         .rooms
           %h3.rooms__room-name room-name(テンプレ)
           %p.header__right--room-text room-text(テンプレ)

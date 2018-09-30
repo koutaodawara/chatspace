@@ -7,9 +7,16 @@
       @include font_basic(#fff, 16px, 100px, bold);
       float: left;
     }
-    .header__user-edit {
+    .edit-list {
       @include font_basic(#fff, 16px, 100px);
       float: right;
+      .edit-list__new {
+        float: right;
+        padding-right: 5px;
+      }
+      .edit-list__edit {
+        float: right;
+      }
     }
   }
 }
