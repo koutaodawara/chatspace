@@ -14,3 +14,8 @@
 html,body,.wrapper,.side-bar,.main {
   height: 100%;
 }
+
+.link-basic:link, .link-basic:visited {
+  color: #fff;
+  text-decoration: none;
+}

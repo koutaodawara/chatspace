@@ -10,19 +10,24 @@
           %h2.header__user-name name
           %ul.edit-list
             %li.edit-list__edit
-              = fa_icon("gear")
+              %a.link-basic{ href: "edit_account" }
+                = fa_icon("gear")
             %li.edit-list__new
-              = fa_icon("edit")
+              %a.link-basic{ href: "new_room" }
+                = fa_icon("edit")
         .rooms
           .room
-            %h3.room__room-name room-name
-            %p.room__room-log room-log
+            %a.link-basic{ href: "change_room" }
+              %h3.room__room-name room-name
+              %p.room__room-log room-log
           .room
-            %h3.room__room-name room-name
-            %p.room__room-log room-log
+            %a.link-basic{ href: "change_room" }
+              %h3.room__room-name room-name
+              %p.room__room-log room-log
           .room
-            %h3.room__room-name room-name
-            %p.room__room-log room-log
+            %a.link-basic{ href: "change_room" }
+              %h3.room__room-name room-name
+              %p.room__room-log room-log
       .main
         .header
           .room-info
@@ -34,16 +39,19 @@
               %li.members__member kzym
               %li.members__member kzym
           .edit-btn
-            %p.edit-btn__btn-text Edit
+            %p.edit-btn__btn-text
+              %a.edit-btn__btn-text--link{ href: "edit_room" } Edit
         .chat
           .message
             %h3.message__name name
             %p.message__date date
             %p.message__body body
-            %img.message__image{src: "abc"}
+            %img.message__image{ src: "abc" }
         .form
-          .input-box
-            %input.input-box__text{ type: "text", placeholder: "type a message"}
-            .input-box__icon
-              = fa_icon("image")
-          .form__send-btn Send
+          %form
+            .input-box
+              %input.input-box__text{ type: "text", placeholder: "type a message" }
+              %label.input-box__image
+                = fa_icon("image")
+                %input.input-box__file-send{type: "file"}
+            %button.form__send-btn{type: "submit",} Send

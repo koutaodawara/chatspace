@@ -30,6 +30,10 @@
       margin-top: 28px;
       border: solid 1px $btn_color ;
       &__btn-text {
+        &--link:link, &--link:visited {
+          color: $btn_color;
+          text-decoration: none;
+        }
       }
     }
   }

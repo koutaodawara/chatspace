@@ -11,9 +11,12 @@
         float: left;
         padding-left: 10px;
       }
-      &__icon {
+      &__image {
         @include absolute(10px, 10px, null, null);
         font-size: 20px;
+      }
+      &__file-send {
+        display: none;
       }
     }
     &__send-btn {
