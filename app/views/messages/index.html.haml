@@ -36,10 +36,11 @@
           .edit-btn
             %p.edit-btn__btn-text Edit
         .chat
-          %h3 name(テンプレ)
-          %p date(テンプレ)
-          %p text(テンプレ)
-          %img image(テンプレ)
+          .message
+            %h3.message__name name
+            %p.message__date date
+            %p.message__body body
+            %img.message__image{src: "abc"}
         .form
           .input-box
             %input.input-box__text{ type: "text" }

@@ -1,0 +1,25 @@
+.main {
+  .chat {
+    background-color: #fafafa;
+    padding:46px 40px 0;
+    .message {
+      padding-bottom: 40px;
+      &__name {
+        @include font_basic(#434a54, 16px, null, bold);
+        float: left;
+      }
+      &__date {
+        @include font_basic(#999, 12px);
+        display: inline-block;
+        vertical-align: super;
+        margin-left: 10px;
+      }
+      &__body {
+        @include font_basic(#434a54, 14px);
+        margin: 10px 0;
+      }
+      &__image {
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .main {
-  @include div_basic (100%);
+  @include div_basic (calc(100% - 300px));
   margin-left: $side-w;
   .header {
     @include div_basic(100%, $head_h);
