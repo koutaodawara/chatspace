@@ -4,6 +4,7 @@
   .header {
     @include div_basic(100%, $head_h);
     padding: 0 40px;
+    border-bottom: solid 1px #eee;
     .room-info {
       float: left;
       margin-top: 35px;
@@ -22,7 +23,12 @@
       }
     }
     .edit-btn {
+      @include div_basic(null, 40px);
+      @include font_basic($light_blue, null, 40px);
       float: right;
+      padding: 0 20px;
+      margin-top: 28px;
+      border: solid 1px $light_blue ;
       &__btn-text {
       }
     }
