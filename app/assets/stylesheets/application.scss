@@ -1,2 +1,4 @@
 @import "./reset";
-@import "./modules/main-header"
+@import "./mixin/basic";
+@import "./modules/side-header";
+@import "./modules/side-rooms";

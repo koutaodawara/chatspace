@@ -1,0 +1,14 @@
+@mixin div_basic($width: null, $height: null,
+                 $bgcolor: #fff, $boxsizing: border-box) {
+  width : $width;
+  height: $height;
+  background-color: $bgcolor;
+  box-sizing: $boxsizing;
+}
+
+@mixin font_basic($color: #fff, $size: 16px, $line: null, $weight: null) {
+  color      : $color;
+  font-size  : $size;
+  line-height: $line;
+  font-weight: $weight;
+}

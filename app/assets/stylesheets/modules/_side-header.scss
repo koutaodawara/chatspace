@@ -1,0 +1,15 @@
+.side-bar {
+  @include div_basic(300px);
+  .header {
+    @include div_basic(300px, 100px, #253141);
+    padding: 0 20px;
+    .header__user-name {
+      @include font_basic(#fff, 16px, 100px, bold);
+      float: left;
+    }
+    .header__user-edit {
+      @include font_basic(#fff, 16px, 100px);
+      float: right;
+    }
+  }
+}
