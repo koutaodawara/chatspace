@@ -1,0 +1,13 @@
+.side-bar {
+  .rooms {
+    @include div_basic($side-bar_width, calc(100% - #{$header_height}), #2f3e51);
+    @include font_basic(#fff, 15px);
+    .room {
+      padding: 20px;
+      &__room-log {
+        font-size: 11px;
+        margin-top: 5px;
+      }
+    }
+  }
+}

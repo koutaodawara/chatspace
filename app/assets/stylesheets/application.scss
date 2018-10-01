@@ -1,0 +1,28 @@
+/*
+ *= require font-awesome
+ */
+
+@import "./reset";
+@import "./config/valiable";
+@import "./mixin/basic";
+@import "./modules/side-header";
+@import "./modules/side-rooms";
+@import "./modules/main-header";
+@import "./modules/main-chat";
+@import "./modules/main-form";
+
+html,body,.wrapper,.side-bar,.main {
+  height: 100%;
+}
+
+.link-basic:link, .link-basic:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.notice {
+  @include div_basic(100%, 25px, $btn_color);
+  &__text {
+    @include font_basic(#fff, 16px, null, 25px, center);
+  }
+}
