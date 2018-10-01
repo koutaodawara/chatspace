@@ -1,14 +1,14 @@
 .side-bar {
   float: left;
   .header {
-    @include div_basic($side_w, $head_h, #253141);
+    @include div_basic($side-bar_width, $header_height, #253141);
     padding: 0 20px;
     &__user-name {
-      @include font_basic(#fff, 16px, $head_h, bold);
+      @include font_basic(#fff, 16px, bold, $header_height);
       float: left;
     }
     .edit-list {
-      @include font_basic(#fff, 16px, $head_h);
+      @include font_basic(#fff, 16px, null, $header_height);
       float: right;
       &__new {
         float: right;

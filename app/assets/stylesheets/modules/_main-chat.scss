@@ -1,11 +1,11 @@
 .main {
   .chat {
-    @include div_basic(null, calc(100% - #{$head_h} - #{$form_h}), $chat_bg);
+    @include div_basic(null, calc(100% - #{$header_height} - #{$chat-form_height}), $chat_background-color);
     padding:46px 40px 0;
     .message {
       padding-bottom: 40px;
       &__name {
-        @include font_basic(#434a54, 16px, null, bold);
+        @include font_basic($chat-text_color, 16px, bold);
         float: left;
       }
       &__date {
@@ -15,7 +15,7 @@
         margin-left: 10px;
       }
       &__body {
-        @include font_basic(#434a54, 14px);
+        @include font_basic($chat-text_color, 14px);
         margin: 10px 0;
       }
       &__image {

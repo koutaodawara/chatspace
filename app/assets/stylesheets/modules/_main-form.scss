@@ -1,9 +1,9 @@
 .main {
   .form {
-    @include div_basic(null, $form_h, $form_bg);
+    @include div_basic(null, $chat-form_height, $form_background-color);
     padding: 20px 40px;
     .input-box {
-      @include div_basic(calc(100% - 115px), 50px);
+      @include div_basic(calc(100% - #{$send-btn_width} - 15px), 50px);
       position: relative;
       float: left;
       &__text {
@@ -20,8 +20,8 @@
       }
     }
     &__send-btn {
-      @include div_basic($send_w, $send_h, $btn_color);
-      @include font_basic(#fff, 16px, 50px, null, center);
+      @include div_basic($send-btn_width, $send-btn_height, $btn_color);
+      @include font_basic(#fff, 16px, null, 50px, center);
       float: right;
     }
   }

@@ -1,8 +1,8 @@
 .main {
-  @include div_basic (calc(100% - #{$side_w}));
-  margin-left: $side-w;
+  @include div_basic (calc(100% - #{$side-bar_width}));
+  margin-left: $side-bar-width;
   .header {
-    @include div_basic(100%, $head_h);
+    @include div_basic(100%, $header_height);
     padding: 0 40px;
     border-bottom: solid 1px #eee;
     .room-info {
@@ -24,12 +24,12 @@
     }
     .edit-btn {
       @include div_basic(null, 40px);
-      @include font_basic($btn_color, null, 40px);
       float: right;
       padding: 0 20px;
       margin-top: 28px;
       border: solid 1px $btn_color ;
       &__btn-text {
+        @include font_basic($btn_color, null, null, 40px);
         &--link:link, &--link:visited {
           color: $btn_color;
           text-decoration: none;

@@ -6,11 +6,11 @@
   box-sizing: $boxsizing;
 }
 
-@mixin font_basic($color: #fff, $size: 16px, $line: null, $weight: null, $aline: null) {
+@mixin font_basic($color: #fff, $size: 16px, $weight: null, $line: null, $aline: null) {
   color      : $color;
   font-size  : $size;
-  line-height: $line;
   font-weight: $weight;
+  line-height: $line;
   text-align : $aline;
 }
 
