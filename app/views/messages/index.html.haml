@@ -15,7 +15,7 @@
               %a.link-basic{ href: "edit_account" }
                 = fa_icon("gear")
             %li.edit-list__new
-              %a.link-basic{ href: "new_room" }
+              = link_to edit_user_path(current_user), class: "link-basic" do
                 = fa_icon("edit")
         .rooms
           .room
