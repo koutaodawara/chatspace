@@ -5,6 +5,7 @@
 @import "./reset";
 @import "./config/valiable";
 @import "./mixin/basic";
+@import "./modules/flash";
 @import "./modules/side-header";
 @import "./modules/side-rooms";
 @import "./modules/main-header";
@@ -21,9 +22,3 @@ html,body,.wrapper,.side-bar,.main {
   text-decoration: none;
 }
 
-.notice {
-  @include div_basic(100%, 25px, $btn_color);
-  &__text {
-    @include font_basic(#fff, 16px, null, 25px, center);
-  }
-}

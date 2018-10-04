@@ -1,0 +1,10 @@
+.flash {
+  @include div_basic(100%, 25px);
+  @include font_basic(#fff, 16px, null, 25px, center);
+  &__notice {
+    background-color: $btn_color;
+  }
+  &__alert {
+    background-color: red;
+  }
+}
