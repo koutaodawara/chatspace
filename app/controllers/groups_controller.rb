@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def new
     # グループ新規作成画面
+    @group = Group.new
   end
 
   def create
