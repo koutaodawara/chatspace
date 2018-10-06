@@ -12,6 +12,8 @@
 @import "./modules/main-chat";
 @import "./modules/main-form";
 @import "./modules/user";
+@import "./modules/group";
+
 
 html,body,.wrapper,.side-bar,.main {
   height: 100%;
@@ -21,4 +23,3 @@ html,body,.wrapper,.side-bar,.main {
   color: #fff;
   text-decoration: none;
 }
-
