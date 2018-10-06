@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :get_current_group, only: [:edit, :update]
+
   def new
     # グループ新規作成画面
     @group = Group.new
@@ -9,31 +11,28 @@ class GroupsController < ApplicationController
     # グループをDBに保存
     @group = Group.new(group_params)
     if @group.save
-      user_ids = user_ids_params[:user_ids]
-      user_ids.each do |id|
-        new_group_id = Group.last.id
-        Member.create(user_id: id, group_id: new_group_id)
-      end
       redirect_to root_path, notice: "グループを作成しました"
     else
       render :new
     end
   end
 
-  def edit
-    # グループ編集画面
-  end
-
   def update
     # グループ編集をDBに反映
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to root_path, notice: "グループを編集しました"
+    else
+      render :edit
+    end
   end
 
   private
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, { user_ids: [] } )
   end
 
-  def user_ids_params
-    params.require(:group).permit(user_ids: [])
+  def get_current_group
+    @group = Group.find(params[:id])
   end
 end
