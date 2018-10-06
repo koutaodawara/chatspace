@@ -1,0 +1,17 @@
+.side-bar
+  .header
+    %h2.header__user-name
+      = current_user.name
+    %ul.edit-list
+      %li.edit-list__edit
+        = link_to edit_user_path(current_user), class: "link-basic" do
+          = fa_icon("gear")
+      %li.edit-list__new
+        = link_to new_group_path(current_user), class: "link-basic" do
+          = fa_icon("edit")
+  .rooms
+    - @groups.each do |group|
+      .room
+        %a.link-basic{ href: "change_room" }
+          %h3.room__room-name= group.name
+          %p.room__room-log log
