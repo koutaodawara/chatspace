@@ -12,6 +12,7 @@
   .rooms
     - current_user.groups.each do |group|
       .room
-        %a.link-basic{ href: "change_room" }
+        = link_to group_messages_path(group), class: "link-basic" do
           %h3.room__room-name= group.name
-          %p.room__room-log log
+          %p.room__room-log
+            = group.show_last_message
