@@ -1,0 +1,32 @@
+!!!
+%html{ lang: "ja" }
+  %head
+    %meta{ charset: "utf-8" }
+    = stylesheet_link_tag "application"
+  %body
+    .wrapper
+      = render "sidebar", locals: {groups: @groups}
+      .main
+        .header
+          .group-info
+            %h2.group-info__group-name MainGroup
+            %ul.members
+              %li.members__member Member：
+              %li.members__member kzym
+              %li.members__member kzym
+              %li.members__member kzym
+              %li.members__member kzym
+          .edit-btn
+            %p.edit-btn__btn-text
+              = link_to "/groups/1/edit", class: "edit-btn__btn-text--link" do
+                Edit
+        .chat
+          = render @messages
+        .form
+          = form_for [@group, @message] do |f|
+            .input-box
+              = f.text_field :body, class: "input-box__text", placeholder: "type a message"
+              = f.label :image, class: "input-box__image" do
+                = fa_icon("image")
+                = f.file_field :image, class: "input-box__file-send"
+            %button.form__send-btn{type: "submit",} Send

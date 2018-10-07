@@ -1,10 +1,11 @@
 .side-bar {
-  .rooms {
+  .groups {
     @include div_basic($side-bar_width, calc(100% - #{$header_height}), #2f3e51);
     @include font_basic(#fff, 15px);
-    .room {
+    overflow: scroll;
+    .group {
       padding: 20px;
-      &__room-log {
+      &__group-log {
         font-size: 11px;
         margin-top: 5px;
       }

@@ -1,6 +1,7 @@
 .main {
   .chat {
     @include div_basic(null, calc(100% - #{$header_height} - #{$chat-form_height}), $chat_background-color);
+    overflow: scroll;
     padding:46px 40px 0;
     .message {
       padding-bottom: 40px;

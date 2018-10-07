@@ -13,6 +13,8 @@ module ChatSpace
       g.test_framework false
     end
 
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
     config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
   end
 end
