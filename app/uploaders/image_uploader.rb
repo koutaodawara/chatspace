@@ -2,7 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # ファイルを800x800に変換する
-  process resize_to_fit: [800, 800]
+  process resize_to_fit: [200, 200]
   storage :file
 
   def store_dir

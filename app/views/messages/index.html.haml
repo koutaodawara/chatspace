@@ -5,8 +5,24 @@
     = stylesheet_link_tag "application"
   %body
     .wrapper
+      = render "sidebar", locals: {groups: @groups}
       .main
-        = # ここから下だけフォームとして切り出したい
+        .header
+          .room-info
+            %h2.room-info__room-name MainRoom
+            %ul.members
+              %li.members__member Member：
+              %li.members__member kzym
+              %li.members__member kzym
+              %li.members__member kzym
+              %li.members__member kzym
+          .edit-btn
+            %p.edit-btn__btn-text
+              = link_to "/groups/1/edit", class: "edit-btn__btn-text--link" do
+                Edit
+        .chat
+          .message
+            = render @messages
         .form
           = form_for [@group, @message] do |f|
             .input-box
@@ -14,4 +30,4 @@
               = f.label :image, class: "input-box__image" do
                 = fa_icon("image")
                 = f.file_field :image, class: "input-box__file-send"
-              %button.form__send-btn{type: "submit",} Send
+            %button.form__send-btn{type: "submit",} Send

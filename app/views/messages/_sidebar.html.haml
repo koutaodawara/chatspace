@@ -10,7 +10,7 @@
         = link_to new_group_path(current_user), class: "link-basic" do
           = fa_icon("edit")
   .rooms
-    - current_user.groups.each do |group|
+    - @groups.each do |group|
       .room
         %a.link-basic{ href: "change_room" }
           %h3.room__room-name= group.name
