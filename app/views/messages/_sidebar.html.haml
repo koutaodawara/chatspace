@@ -9,10 +9,10 @@
       %li.edit-list__new
         = link_to new_group_path(current_user), class: "link-basic" do
           = fa_icon("edit")
-  .rooms
+  .groups
     - current_user.groups.each do |group|
-      .room
+      .group
         = link_to group_messages_path(group), class: "link-basic" do
-          %h3.room__room-name= group.name
-          %p.room__room-log
+          %h3.group__group-name= group.name
+          %p.group__group-log
             = group.show_last_message

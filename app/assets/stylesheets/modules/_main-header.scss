@@ -5,10 +5,10 @@
     @include div_basic(100%, $header_height);
     padding: 0 40px;
     border-bottom: solid 1px #eee;
-    .room-info {
+    .group-info {
       float: left;
       margin-top: 35px;
-      &__room-name {
+      &__group-name {
         @include font_basic(#333, 20px);
       }
       .members {

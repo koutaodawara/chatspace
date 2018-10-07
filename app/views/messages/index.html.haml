@@ -8,8 +8,8 @@
       = render "sidebar", locals: {groups: @groups}
       .main
         .header
-          .room-info
-            %h2.room-info__room-name MainRoom
+          .group-info
+            %h2.group-info__group-name MainGroup
             %ul.members
               %li.members__member Member：
               %li.members__member kzym
@@ -21,8 +21,7 @@
               = link_to "/groups/1/edit", class: "edit-btn__btn-text--link" do
                 Edit
         .chat
-          .message
-            = render @messages
+          = render @messages
         .form
           = form_for [@group, @message] do |f|
             .input-box
