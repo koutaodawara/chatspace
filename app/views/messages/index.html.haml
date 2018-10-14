@@ -9,17 +9,14 @@
       .main
         .header
           .group-info
-            %h2.group-info__group-name MainGroup
+            %h2.group-info__group-name= @group.name
             %ul.members
               %li.members__member Member：
-              %li.members__member kzym
-              %li.members__member kzym
-              %li.members__member kzym
-              %li.members__member kzym
+              - @group.users.each do |user|
+                %li.members__member= user.name
           .edit-btn
             %p.edit-btn__btn-text
-              = link_to "/groups/1/edit", class: "edit-btn__btn-text--link" do
-                Edit
+              = link_to "Edit", "/groups/#{params[:group_id]}/edit", class: "edit-btn__btn-text--link"
         .chat
           = render @messages
         .form
@@ -29,4 +26,4 @@
               = f.label :image, class: "input-box__image" do
                 = fa_icon("image")
                 = f.file_field :image, class: "input-box__file-send"
-            %button.form__send-btn{type: "submit",} Send
+            = f.submit "Send", class: "form__send-btn"
