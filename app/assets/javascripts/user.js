@@ -1,4 +1,5 @@
 $(() => {
+  // 結果表示の要素を変数化
   let user_list = $('#user-search-result');
 
   function appendUser (user) {
@@ -14,10 +15,11 @@ $(() => {
                   <p class="chat-group-user__name">${message}</p>
                 </div>`
     user_list.append(html);
-  };
+  }
 
   $('#user-search-field').on('input', function(e) {
     e.preventDefault();
+    // 入力内容を取得
     let input = $('#user-search-field').val();
 
     $.ajax({
@@ -27,19 +29,19 @@ $(() => {
       data: { keyword: input },
     })
     .done(function(users) {
-      console.log(users);
+      // 検索結果を空欄にする
       user_list.empty();
       if (users.length !== 0) {
         users.forEach(function(user) {
+          // 検索結果にユーザーを追加する関数
           appendUser(user);
         })
       } else {
-        appendNoUser('一致するユーザーが見つかりません')
+        appendNoUser('一致するユーザーが見つかりません');
       }
     })
     .fail(function() {
-      alert("ユーザー検索に失敗しました")
-    });
-
+      alert("ユーザー検索に失敗しました");
+    })
   });
 });
