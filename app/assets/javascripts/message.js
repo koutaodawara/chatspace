@@ -1,8 +1,26 @@
 $(() => {
+  console.log("読み込めてるよ")
+  function buildHTML(message) {
+    const IMAGE = message.image.url
+    let html = ""
+    let commonHtml = `<div class="message">
+                        <h3 class="message__name">${message.user_name}</h3>
+                        <p class="message__date">${message.created_at}</p>
+                        <p class="message__body">${message.body}</p>`
+    if (IMAGE != null) {
+      html = commonHtml + `<img src="${IMAGE}" class="message__image"></div>`;
+    } else {
+      html = commonHtml + "</div>";
+    }
+    // console.log(html);
+    return html;
+  }
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
+    // FormDataとリクエストurlを取得
     let formData = new FormData(this);
-    let url = window.location.href;
+    let url = $(this).attr('action');
     console.log(url)
 
     $.ajax({
@@ -13,10 +31,18 @@ $(() => {
       processData: false,
       contentType: false
     })
-    .done(function() {
+    .done(function(data) {
+      console.log(data)
+      let html = buildHTML(data);
+      $('.chat').append(html);
+      $('.input-box__text').val("");
+      $('.input-box__image').val("");
       console.log("success");
     })
-    .fail(function() {
+    .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log(XMLHttpRequest.status);
+      console.log(textStatus);
+      console.log(errorThrown);
       console.log("error");
     });
   });

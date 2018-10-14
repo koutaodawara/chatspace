@@ -1,8 +1,6 @@
-!!!
-%html{ lang: "ja" }
-  %head
-    %meta{ charset: "utf-8" }
-    = stylesheet_link_tag "application"
-  %body
-    .wrapper
-      = render partial: "messages/sidebar", locals: {groups: @groups}
+%head
+  %meta{ charset: "utf-8" }
+  = stylesheet_link_tag "application"
+%body
+  .wrapper
+    = render partial: "messages/sidebar", locals: {groups: @groups}
