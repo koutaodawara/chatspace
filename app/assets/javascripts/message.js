@@ -37,9 +37,15 @@ $(() => {
       $('.chat').append(html);
       $('.input-box__text').val("");
       $('.input-box__image').val("");
+      $(".form__send-btn").prop('disabled', false);
+      $('.chat').animate({
+        // offset().topで画面左上から対象要素までのスクロール量を取得
+        scrollTop: $('.chat .message:last-child').offset().top
+      }, 200);
       console.log("success");
     })
     .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+      alert("通信に失敗しました");
       console.log(XMLHttpRequest.status);
       console.log(textStatus);
       console.log(errorThrown);
