@@ -1,5 +1,4 @@
 $(() => {
-  console.log("読み込めてるよ")
   function buildHTML(message) {
     const IMAGE = message.image.url
     let html = ""
@@ -12,7 +11,6 @@ $(() => {
     } else {
       html = commonHtml + "</div>";
     }
-    // console.log(html);
     return html;
   }
 
@@ -21,7 +19,6 @@ $(() => {
     // FormDataとリクエストurlを取得
     let formData = new FormData(this);
     let url = $(this).attr('action');
-    console.log(url)
 
     $.ajax({
       url: url,
@@ -32,7 +29,6 @@ $(() => {
       contentType: false
     })
     .done(function(data) {
-      console.log(data)
       let html = buildHTML(data);
       $('.chat').append(html);
       $('.input-box__text').val("");
@@ -42,14 +38,9 @@ $(() => {
         // offset().topで画面左上から対象要素までのスクロール量を取得
         scrollTop: $('.chat .message:last-child').offset().top
       }, 200);
-      console.log("success");
     })
-    .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+    .fail(function() {
       alert("通信に失敗しました");
-      console.log(XMLHttpRequest.status);
-      console.log(textStatus);
-      console.log(errorThrown);
-      console.log("error");
     });
   });
 });
