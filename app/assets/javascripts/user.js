@@ -54,18 +54,15 @@ $(() => {
     })
   });
 
-  // 追加ボタンのイベント
   $(document).on('click', '.chat-group-user__btn--add', function() {
-    // ユーザー名とidを取得
     let userName = $(this).attr('data-user-name');
     let userId   = $(this).attr('data-user-id');
-    // クリックされた要素の親要素を削除
+
     $(this).parent().remove();
     let html = buildAddUserHTML(userName, userId);
     $('.js-add-user').append(html);
   })
 
-  // 削除ボタンのイベント
   $(document).on('click', '.js-remove-btn', function() {
     $(this).parent().remove();
   })
