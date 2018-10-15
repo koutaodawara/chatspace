@@ -17,6 +17,15 @@ $(() => {
     user_list.append(html);
   }
 
+  function buildAddUserHTML (name, id) {
+    let html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+                  <input name='group[user_ids][]' type='hidden' value='${name}'>
+                  <p class='chat-group-user__name'>${name}</p>
+                  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+                </div>`
+    return html;
+  }
+
   $('#user-search-field').on('input', function(e) {
     e.preventDefault();
     // 入力内容を取得
@@ -46,6 +55,12 @@ $(() => {
   });
 
   $(document).on('click', '.chat-group-user__btn--add', function() {
-    console.log("hello");
+    // ユーザー名とidを取得
+    let userName = $(this).attr('data-user-name');
+    let userId    = $(this).attr('data-user-id');
+    // クリックされた要素の親要素を削除
+    $(this).parent().remove();
+    let html = buildAddUserHTML(userName, userId);
+    $('.js-add-user').append(html);
   })
 });
