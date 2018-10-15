@@ -6,7 +6,10 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
     respond_to do |format|
       format.html
-      format.json
+      format.json {
+        # latest_idより大きいidのメッセージを取得
+        @new_messages = Message.where("id > ?", params[:latest_id])
+      }
     end
   end
 
