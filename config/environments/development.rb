@@ -1,7 +1,4 @@
 Rails.application.configure do
-  config.assets.precompile += ['cable.js']
-  config.assets.precompile += ['massage.js']
-  config.assets.precompile += ['user.js']
   config.cache_classes = false
 
   # Do not eager load code on boot.
