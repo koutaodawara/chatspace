@@ -43,4 +43,8 @@ $(() => {
       alert("通信に失敗しました");
     });
   });
+
+  setInterval(function() {
+    console.log("3秒おき")
+  }, 3000);
 });
