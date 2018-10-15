@@ -3,6 +3,7 @@
   %head
     %meta{ charset: "utf-8" }
     = stylesheet_link_tag "application"
+    = javascript_include_tag 'reload.js'
   %body
     .wrapper
       = render "sidebar", locals: {groups: @groups}
@@ -27,3 +28,4 @@
                 = fa_icon("image")
                 = f.file_field :image, class: "input-box__file-send"
             = f.submit "Send", class: "form__send-btn"
+

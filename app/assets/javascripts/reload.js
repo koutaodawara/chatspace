@@ -14,33 +14,24 @@ $(() => {
     return html;
   }
 
-  $('#new_message').on('submit', function(e) {
-    e.preventDefault();
-    // FormDataとリクエストurlを取得
-    let formData = new FormData(this);
-    let url = $(this).attr('action');
-
+  setInterval(function() {
+    let url = window.location.href;
     $.ajax({
       url: url,
-      type: 'POST',
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
+      dataType: 'json'
     })
     .done(function(data) {
-      let html = buildHTML(data);
-      $('.chat').append(html);
-      $('.input-box__text').val("");
-      $('.input-box__image').val("");
-      $(".form__send-btn").prop('disabled', false);
+      $('.chat').empty();
+      $.each(data, function(i, message) {
+        let html = buildHTML(message);
+        $('.chat').append(html);
+      });
       $('.chat').animate({
-        // offset().topで画面左上から対象要素までのスクロール量を取得
         scrollTop: $('.chat .message:last-child').offset().top
       }, 200);
     })
     .fail(function() {
-      alert("通信に失敗しました");
+      alert('自動更新に失敗しました')
     });
-  });
+  }, 5000);
 });
