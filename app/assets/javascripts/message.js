@@ -45,6 +45,23 @@ $(() => {
   });
 
   setInterval(function() {
-    console.log("3秒おき")
-  }, 3000);
+    let url = window.location.href;
+    $.ajax({
+      url: url,
+      dataType: 'json'
+    })
+    .done(function(data) {
+      $('.chat').empty();
+      $.each(data, function(i, message) {
+        let html = buildHTML(message);
+        $('.chat').append(html);
+      });
+      $('.chat').animate({
+        scrollTop: $('.chat .message:last-child').offset().top
+      }, 200);
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました')
+    });
+  }, 5000);
 });
