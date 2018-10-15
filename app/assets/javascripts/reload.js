@@ -15,23 +15,27 @@ $(() => {
   }
 
   setInterval(function() {
-    let url = window.location.href;
-    $.ajax({
-      url: url,
-      dataType: 'json'
-    })
-    .done(function(data) {
-      $('.chat').empty();
-      $.each(data, function(i, message) {
-        let html = buildHTML(message);
-        $('.chat').append(html);
+    let group_id = $('.group-info__group-name').attr('group_id');
+    let path = window.location.pathname;
+    if (path == `/groups/${group_id}/messages`) {
+      console.log("hello")
+      $.ajax({
+        url: path,
+        dataType: 'json'
+      })
+      .done(function(data) {
+        $('.chat').empty();
+        $.each(data, function(i, message) {
+          let html = buildHTML(message);
+          $('.chat').append(html);
+        });
+        $('.chat').animate({
+          scrollTop: $('.chat .message:last-child').offset().top
+        }, 200);
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました')
       });
-      $('.chat').animate({
-        scrollTop: $('.chat .message:last-child').offset().top
-      }, 200);
-    })
-    .fail(function() {
-      alert('自動更新に失敗しました')
-    });
+    }
   }, 5000);
 });
