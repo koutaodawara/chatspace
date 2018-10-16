@@ -1,6 +1,6 @@
-.message
+.message{message_id: "#{message.id}"}
   %h3.message__name= message.user.name
-  %p.message__date= message.created_at.strftime("%Y/%m/%d(%a) %H:%M:%S")
+  %p.message__date= message.created_at.to_s
   %p.message__body= message.body
   - if message.image?
     = image_tag message.image, class: "message__image"

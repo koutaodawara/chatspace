@@ -9,7 +9,7 @@
       .main
         .header
           .group-info
-            %h2.group-info__group-name= @group.name
+            %h2.group-info__group-name{group_id: @group.id}= @group.name
             %ul.members
               %li.members__member Member：
               - @group.users.each do |user|
@@ -27,3 +27,4 @@
                 = fa_icon("image")
                 = f.file_field :image, class: "input-box__file-send"
             = f.submit "Send", class: "form__send-btn"
+
