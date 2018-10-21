@@ -36,7 +36,7 @@ $(() => {
             $('.chat').append(html);
           });
           $('.chat').animate({
-            scrollTop: $('.chat .message:last-child').offset().top
+            scrollTop: $('.chat')[0].scrollHeight
           }, 200);
         }
       })
