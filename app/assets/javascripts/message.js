@@ -32,11 +32,11 @@ $(() => {
       let html = buildHTML(data);
       $('.chat').append(html);
       $('.input-box__text').val("");
-      $('.input-box__image').val("");
+      $('.input-box__file-send').val("");
       $(".form__send-btn").prop('disabled', false);
       $('.chat').animate({
-        // offset().topで画面左上から対象要素までのスクロール量を取得
-        scrollTop: $('.chat .message:last-child').offset().top
+        // メッセージが増えていくdivのscrollHeightを使ってスクロール
+        scrollTop: $('.chat')[0].scrollHeight
       }, 200);
     })
     .fail(function() {
