@@ -33,7 +33,6 @@ $(() => {
       $('.chat').append(html);
       $('.input-box__text').val("");
       $('.input-box__file-send').val("");
-      $(".form__send-btn").prop('disabled', false);
       $('.chat').animate({
         // メッセージが増えていくdivのscrollHeightを使ってスクロール
         scrollTop: $('.chat')[0].scrollHeight
@@ -42,5 +41,9 @@ $(() => {
     .fail(function() {
       alert("通信に失敗しました");
     });
+
+    setTimeout(function() {
+      $(".form__send-btn").prop('disabled', false)
+    }, 1000);
   });
 });
