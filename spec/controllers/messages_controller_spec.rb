@@ -5,41 +5,41 @@ describe MessagesController, type: :controller do
   let(:group) { create(:group) }
   let(:user)  { create(:user) }
 
-  # describe 'GET #index' do
-  #   context 'log in' do
-  #     before do
-  #       login user
-  #       get :index, params: { group_id: group.id }
-  #     end
+  describe 'GET #index' do
+    context 'log in' do
+      before do
+        login user
+        get :index, params: { group_id: group.id }
+      end
 
-  #     example '@messageがあるか' do
-  #       # assignsは直前リクエスト内で定義した変数を参照できる
-  #       # beforeでget :index としているので、ここでは
-  #       # indexアクションの変数を持ってこれる状態となってる
-  #       expect(assigns(:message)).to be_a_new(Message)
-  #     end
+      example '@messageがあるか' do
+        # assignsは直前リクエスト内で定義した変数を参照できる
+        # beforeでget :index としているので、ここでは
+        # indexアクションの変数を持ってこれる状態となってる
+        expect(assigns(:message)).to be_a_new(Message)
+      end
 
-  #     example '@groupがあるか' do
-  #       expect(assigns(:group)).to eq(group)
-  #     end
+      example '@groupがあるか' do
+        expect(assigns(:group)).to eq(group)
+      end
 
-  #     example '該当するビューが描画されてるか' do
-  #       expect(response).to render_template(:index)
-  #     end
-  #   end
+      example '該当するビューが描画されてるか' do
+        expect(response).to render_template(:index)
+      end
+    end
 
-  #   context 'not log in' do
-  #     before do
-  #       get :index, params: { group_id: group.id }
-  #     end
+    context 'not log in' do
+      before do
+        get :index, params: { group_id: group.id }
+      end
 
-  #     example '意図したビューにリダイレクトできてるか' do
-  #       # beforeでindexにリクエストを出しているので
-  #       # responseはindexアクションで描画されるビューを持ってる
-  #       expect(response).to redirect_to(new_user_session_path)
-  #     end
-  #   end
-  # end
+      example '意図したビューにリダイレクトできてるか' do
+        # beforeでindexにリクエストを出しているので
+        # responseはindexアクションで描画されるビューを持ってる
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
 
   describe '#create' do
     let(:params) {{ group_id: group.id, user_id: user.id, message: attributes_for(:message) }}
