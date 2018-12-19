@@ -5,14 +5,14 @@ $(() => {
   function appendUser (user) {
     let html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
-                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add">追加</a>
                 </div>`
     user_list.append(html);
   }
 
-  function appendNoUser (message) {
+  function appendNoUser (user) {
     let html = `<div class="chat-group-user clearfix">
-                  <p class="chat-group-user__name">${message}</p>
+                  <p class="chat-group-user__name">${user}</p>
                 </div>`
     user_list.append(html);
   }
@@ -37,7 +37,7 @@ $(() => {
       dataType: 'json',
       data: { keyword: input },
     })
-    .done(function(users) {
+    .done(function(data) {
       // 検索結果を空欄にする
       user_list.empty();
       if (users.length !== 0) {
@@ -46,7 +46,7 @@ $(() => {
           appendUser(user);
         })
       } else {
-        appendNoUser('一致するユーザーが見つかりません');
+        appendNoUser(users);
       }
     })
     .fail(function() {

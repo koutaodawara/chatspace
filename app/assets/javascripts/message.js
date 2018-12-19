@@ -1,6 +1,6 @@
 $(() => {
   function buildHTML(message) {
-    const IMAGE = message.image.url
+    const IMAGE = message.image
     let html = ""
     let commonHtml = `<div class="message">
                         <h3 class="message__name">${message.user_name}</h3>
@@ -28,11 +28,10 @@ $(() => {
       processData: false,
       contentType: false
     })
-    .done(function(data) {
+     done(function(data) {
       let html = buildHTML(data);
-      $('.chat').append(html);
+      $('.messages').append(html);
       $('.input-box__text').val("");
-      $('.input-box__file-send').val("");
       $('.chat').animate({
         // メッセージが増えていくdivのscrollHeightを使ってスクロール
         scrollTop: $('.chat')[0].scrollHeight

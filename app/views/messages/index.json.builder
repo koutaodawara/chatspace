@@ -4,7 +4,5 @@ if @new_messages.present?
     json.body       message.body
     json.image      message.image
     json.created_at message.created_at.to_s
-    json.message_id message.id
   end
 end
-

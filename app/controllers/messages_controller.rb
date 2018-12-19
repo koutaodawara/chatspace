@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
       format.html
       format.json {
         # latest_idより大きいidのメッセージを取得
-        @new_messages = Message.where(["id > ? and group_id = ?", params[:latest_id], @group.id])
+        @new_messages = Message.where("id > ?", params[:latest_id])
       }
     end
   end
