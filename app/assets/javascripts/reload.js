@@ -14,10 +14,10 @@
 //     return html;
 //   }
 
+//   let group_id  = $('.group-info__group-name').attr('group_id');
+//   let path      = window.location.pathname;
 //   setInterval(function() {
 //     let latest_id = $('.message:last').attr('message_id');
-//     let group_id  = $('.group-info__group-name').attr('group_id');
-//     let path      = window.location.pathname;
 //     $.ajax({
 //       url: path,
 //       data: {
