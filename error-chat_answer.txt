@@ -1,26 +1,31 @@
-message.js
-  ①l31 done => .done
-  ③l33 $('.messages') => $('.chat')
-  ④l3 message.image => message.image.url
-  ⑤l35 ファイルをクリアする記述がない
-    $('.input-box__file-send').val("");
-create.json.jbuilder
-  ②json.user.name => json.user_name
+1.グループ作成
+  groups/index.json.jbuilder
+    ②users/へ移動
+  user.js
+    ①l40 data => users
+    ③l49 users => '一致するユーザーは見つかりませんでした'
+    ④l8  data-user-id="${user.id}" data-user-name="${user.name}" を追加
+  _form.html.haml
+    ⑤l27 value: current_user.id を追加
 
-①index.json.builder => jbuilderにリネーム
-  ②json.id message.id を追加(reload.jsに続く)
-reload.js
-  ②l5  message_id="${message.id}" と修正
-  ③l36 scrollTop: $('.chat')[0].scrollHeight
-  ⑤l21 if (path == `/groups/${group_id}/messages`) {}
-    l22 ~ fail までを入れる
-messages_controller.rb
-  ④l11 @new_messages = Message.where(["id > ? and group_id = ?", params[:latest_id], @group.id])
+2.メッセージ送信
+  message.js
+    ①l31 done => .done
+    ③l33 $('.messages') => $('.chat')
+    ④l3 message.image => message.image.url
+    ⑤l35 ファイルをクリアする記述がない
+      $('.input-box__file-send').val(""); を追加
+  messages/create.json.jbuilder
+    ②json.user.name => json.user_name
 
-②groups/index.json.jbuilder => users/へ移動
-user.js
-  ①l40 data => users
-  ③l49 users => '一致するユーザーは見つかりませんでした'
-  ④l8  data-user-id="${user.id}" data-user-name="${user.name}" を追加
-⑤_form.html.haml
-  l27 value: current_user.id を追加
+3.自動更新
+  messages/index.json.builder
+    ①index.json.jbuilderにリネーム
+    ②json.id message.id を追加(reload.jsに続く)
+  reload.js
+    ②l5  message_id="${message.id}" と修正
+    ④l36 scrollTop: $('.chat')[0].scrollHeight
+    ⑤l19 if (path == `/groups/${group_id}/messages`) {} を追加
+      l20~42 までを入れる
+  messages_controller.rb
+    ③l11 @new_messages = Message.where(["id > ? and group_id = ?", params[:latest_id], @group.id])
