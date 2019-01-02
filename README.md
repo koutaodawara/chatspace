@@ -1,45 +1,31 @@
 # README
+EXP試験を突破するためにChatSpaceのエラー問題を作りました！！
+ChatSpace作成後に解いてみてください
 
-## usersテーブル
-|Column  |Type        |Options|
-|--------|------------|-------|
-|name    |varchar(15) |null: false, unique: true, index: true|
-|email   |varchar(255)|null: false, unique: true             |
-|password|varchar(255)|null: false, unique: true             |
+## 事前準備
 
-### Association
-- has_many :groups, through: :members
-- has_many :members
-- has_many :messages
+適当なディレクトリでclone
+`$ git clone https://github.com/KazYam1001/error-chat.git`
+cloneしたディレクトリでいつものコマンド
+`$ bundle`
+`$ bundle exec rake db:create`
+`$ bundle exec rake db:migrate`
 
-## membersテーブル
-|Column  |Type      |Options|
-|--------|----------|-------|
-|user_id |references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+## 進め方
+アプリ内に以下のファイルがあります
+**questions.txt(問題)
+answers.txt(解答)**
+question.txtにエラーの内容が書かれているので、順番に解消してください
 
-### Association
-- belongs_to :group
-- belongs_to :user
-
-## groupsテーブル
-|Column  |Type        |Options|
-|--------|------------|-------|
-|name    |varchar(255)|null: false|
-
-### Association
-- has_many :users, through: :members
-- has_many :members
-- has_many :messages
-
-## messagesテーブル
-|Column  |Type        |Options|
-|--------|------------|-------|
-|body    |text        |                              |
-|image   |varchar(255)|                              |
-|user_id |references  |null: false, foreign_key: true|
-|group_id|references  |null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :group
+## answers.txt
+解答の読み方です。以下の形式で書かれています
+```
+aaa/bbb.rb
+  ①l99 hoge => fuga
+  ②l55 以下を追加
+    puts "EXPメンターになるぞ！"
+```
+1行目は編集すべきファイル名です
+一部問題の順番と編集するファイルの順番が一致してないのでご注意を！
+①、②...はquestionsの問題番号を表しています
+l99やl55はファイル内で何行目を編集すればいいかを表しています
