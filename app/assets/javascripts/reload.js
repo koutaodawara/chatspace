@@ -25,7 +25,7 @@
 //       dataType: 'json'
 //     })
 //     .done(function(data) {
-//       if (data.lenght != 0) {
+//       if (data.length != 0) {
 //         $.each(data, function(i, message) {
 //           let html = buildHTML(message);
 //           $('.chat').append(html);
