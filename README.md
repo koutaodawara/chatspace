@@ -1,45 +1,43 @@
 # README
+EXP試験を突破するため、ChatSpaceのエラー問題を作りました！！
 
-## usersテーブル
-|Column  |Type        |Options|
-|--------|------------|-------|
-|name    |varchar(15) |null: false, unique: true, index: true|
-|email   |varchar(255)|null: false, unique: true             |
-|password|varchar(255)|null: false, unique: true             |
+ChatSpace作成後に解いてみてください
 
-### Association
-- has_many :groups, through: :members
-- has_many :members
-- has_many :messages
+## 事前準備
 
-## membersテーブル
-|Column  |Type      |Options|
-|--------|----------|-------|
-|user_id |references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+適当なディレクトリでclone
 
-### Association
-- belongs_to :group
-- belongs_to :user
+`$ git clone https://github.com/KazYam1001/error-chat.git`
 
-## groupsテーブル
-|Column  |Type        |Options|
-|--------|------------|-------|
-|name    |varchar(255)|null: false|
+cloneしたディレクトリでいつものコマンド
 
-### Association
-- has_many :users, through: :members
-- has_many :members
-- has_many :messages
+`$ bundle`
 
-## messagesテーブル
-|Column  |Type        |Options|
-|--------|------------|-------|
-|body    |text        |                              |
-|image   |varchar(255)|                              |
-|user_id |references  |null: false, foreign_key: true|
-|group_id|references  |null: false, foreign_key: true|
+`$ bundle exec rake db:create`
 
-### Association
-- belongs_to :user
-- belongs_to :group
+`$ bundle exec rake db:migrate`
+
+## 進め方
+アプリ内に以下のファイルがあります
+
+__questions.txt(問題)__
+
+__answers.txt(解答)__
+
+question.txtにエラーの内容が書かれているので、順番に解消してください
+
+## answers.txt
+解答の読み方です。以下の形式で書かれています
+```
+aaa/bbb.rb
+  ①l99 hoge => fuga
+  ②l55 以下を追加
+    puts "EXPメンターになるぞ！"
+```
+1行目は編集すべきファイル名です
+
+一部問題の順番と編集するファイルの順番が一致してないのでご注意を！
+
+①、②...はquestionsの問題番号を表しています
+
+l99やl55はファイル内で何行目を編集すればいいかを表しています
