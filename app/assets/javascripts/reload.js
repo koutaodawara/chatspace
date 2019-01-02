@@ -1,16 +1,15 @@
 // $(() => {
 //   function buildHTML(message) {
-//     const IMAGE = message.image.url
-//     let html = ""
-//     let commonHtml = `<div class="message" message_id="">
-//                         <h3 class="message__name">${message.user_name}</h3>
-//                         <p class="message__date">${message.created_at}</p>
-//                         <p class="message__body">${message.body}</p>`
-//     if (IMAGE != null) {
-//       html = commonHtml + `<img src="${IMAGE}" class="message__image"></div>`;
-//     } else {
-//       html = commonHtml + "</div>";
+//     let image = ""
+//     if (message.image.url) {
+//       image = `<img src="${message.image.url}" class="message__image">`
 //     }
+//     let html = `<div class="message" message_id="">
+//                   <h3 class="message__name">${message.user_name}</h3>
+//                   <p class="message__date">${message.created_at}</p>
+//                   <p class="message__body">${message.body}</p>
+//                   ${image}
+//                 </div>`
 //     return html;
 //   }
 
@@ -26,7 +25,7 @@
 //       dataType: 'json'
 //     })
 //     .done(function(data) {
-//       if (data[0] !== undefined) {
+//       if (data.lenght != 0) {
 //         $.each(data, function(i, message) {
 //           let html = buildHTML(message);
 //           $('.chat').append(html);

@@ -10,13 +10,16 @@
 
 2.メッセージ送信
   message.js
-    ①l31 done => .done
-    ③l33 $('.messages') => $('.chat')
-    ④l3 message.image => message.image.url
+    ②l33 $('.main') => $('.chat')
+    ③l4,l5 message.image => message.image.url
+    ④l43 以下を追加
+      setTimeout(function() {
+        $(".form__send-btn").prop('disabled', false)
+      }, 1000);
     ⑤l35 ファイルをクリアする記述がない
       $('.input-box__file-send').val(""); を追加
   messages/create.json.jbuilder
-    ②json.user.name => json.user_name
+    ①json.user.name => json.user_name
 
 3.自動更新
   messages/index.json.builder

@@ -1,16 +1,15 @@
 $(() => {
   function buildHTML(message) {
-    const IMAGE = message.image
-    let html = ""
-    let commonHtml = `<div class="message">
-                        <h3 class="message__name">${message.user_name}</h3>
-                        <p class="message__date">${message.created_at}</p>
-                        <p class="message__body">${message.body}</p>`
-    if (IMAGE != null) {
-      html = commonHtml + `<img src="${IMAGE}" class="message__image"></div>`;
-    } else {
-      html = commonHtml + "</div>";
+    let image = ""
+    if (message.image) {
+      image = `<img src="${message.image}" class="message__image"></div>`;
     }
+    let html = `<div class="message message_id="${message.message_id}">
+                  <h3 class="message__name">${message.user_name}</h3>
+                  <p class="message__date">${message.created_at}</p>
+                  <p class="message__body">${message.body}</p>
+                  ${image}
+                </div>`
     return html;
   }
 
@@ -28,12 +27,11 @@ $(() => {
       processData: false,
       contentType: false
     })
-     done(function(data) {
-      let html = buildHTML(data);
-      $('.messages').append(html);
+    .done(function(data) {
+      $('.main').append(buildHTML(data));
       $('.input-box__text').val("");
+      // メッセージが増えていくdivのscrollHeightを使ってスクロール
       $('.chat').animate({
-        // メッセージが増えていくdivのscrollHeightを使ってスクロール
         scrollTop: $('.chat')[0].scrollHeight
       }, 200);
     })
@@ -41,8 +39,5 @@ $(() => {
       alert("通信に失敗しました");
     });
 
-    setTimeout(function() {
-      $(".form__send-btn").prop('disabled', false)
-    }, 1000);
   });
 });
