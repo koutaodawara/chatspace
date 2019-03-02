@@ -1,23 +1,23 @@
 1.グループ作成
   groups/index.json.jbuilder
-    ②users/へ移動
+    ②users/へ移動◯
   user.js
-    ①l40 data => users
-    ③l49 users => '一致するユーザーは見つかりませんでした'
-    ④l8  data-user-id="${user.id}" data-user-name="${user.name}" を追加
+    ①l40 data => users◯
+    ③l49 users => '一致するユーザーは見つかりませんでした'◯
+    ④l8  data-user-id="${user.id}" data-user-name="${user.name}" を追加◯
   _form.html.haml
-    ⑤l27 value: current_user.id を追加
+    ⑤l27 value: current_user.id を追加◯
 
 2.メッセージ送信
   messages/create.json.jbuilder
-    ①l4 json.user.name => json.user_name
+    ①l4 json.user.name => json.user_name◯
   message.js
-    ②l31 $('.main') => $('.chat')
+    ②l31 $('.main') => $('.chat')◯
     ③l41 以下を追加
       setTimeout(function() {
         $(".form__send-btn").prop('disabled', false)
       }, 1000);
-    ④l4,l5 message.image => message.image.url
+    ④l4,l5 message.image => message.image.url◯
     ⑤l35 ファイルをクリアする記述がない
       $('.input-box__file-send').val(""); を追加
 

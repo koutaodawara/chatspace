@@ -5,7 +5,7 @@ $(() => {
   function appendUser (user) {
     let html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
-                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add">追加</a>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-name=${user.name} data-user-id=${user.id} >追加</a>
                 </div>`
     user_list.append(html);
   }
@@ -30,6 +30,7 @@ $(() => {
     e.preventDefault();
     // 入力内容を取得
     let input = $('#user-search-field').val();
+    console.log(input);
 
     $.ajax({
       type: 'GET',
@@ -37,8 +38,7 @@ $(() => {
       dataType: 'json',
       data: { keyword: input },
     })
-    .done(function(data) {
-      // 検索結果を空欄にする
+    .done(function(users) {
       user_list.empty();
       if (users.length !== 0) {
         users.forEach(function(user) {
@@ -57,6 +57,7 @@ $(() => {
   $(document).on('click', '.chat-group-user__btn--add', function() {
     let userName = $(this).attr('data-user-name');
     let userId   = $(this).attr('data-user-id');
+
 
     $(this).parent().remove();
     let html = buildAddUserHTML(userName, userId);

@@ -18,6 +18,7 @@ $(() => {
     // FormDataとリクエストurlを取得
     let formData = new FormData(this);
     let url = $(this).attr('action');
+    console.log(url);
 
     $.ajax({
       url: url,
@@ -28,7 +29,7 @@ $(() => {
       contentType: false
     })
     .done(function(data) {
-      $('.main').append(buildHTML(data));
+      $('.chat').append(buildHTML(data));
       $('.input-box__text').val("");
       // メッセージが増えていくdivのscrollHeightを使ってスクロール
       $('.chat').animate({
